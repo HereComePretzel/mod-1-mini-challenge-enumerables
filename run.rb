@@ -7,20 +7,32 @@ spicy_foods = [
 ]
 
 def print_spicy_foods(spicy_foods)
-
-end
+  spicy_foods.map do |key|
+  puts "#{key[:name]} (#{key[:cuisine]}) | Heat Level:#{key[:heat_level]}"
+  end
+end 
+print_spicy_foods(spicy_foods)
 
 def get_names(spicy_foods)
-
+  spicy_foods.each do |key|
+    puts "#{key[:name]} "
+  end 
 end
+get_names(spicy_foods)
 
 def spiciest_foods(spicy_foods)
-
+  spicy_foods.select {|k, v| k[:heat_level] > 5}
 end
+spiciest_foods(spicy_foods)
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine)
+  spicy_foods.find {|k, v| k == v[:cuisine]}
+end 
+get_spicy_food_by_cuisine(spicy_foods, "Sichuan")
 
-end
+
+
+
 
 # BONUS Deliverables
 def print_spiciest_foods(spicy_foods)
@@ -33,5 +45,3 @@ end
 
 # Use this to test your methods
 # run "ruby run.rb" and try calling the methods from the console
-binding.pry
-"pls"
